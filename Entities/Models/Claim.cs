@@ -1,4 +1,4 @@
-﻿namespace CompanyClaimsApi.DomainModels;
+﻿namespace Entities.Models;
 
 public class Claim
 {

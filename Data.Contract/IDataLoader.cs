@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Entities.Models;
 
 namespace Data.Contract
 {
-    internal interface IDataLoader
+    public interface IDataLoader
     {
+        Task<List<Company>> GetCompanies();
+        Task<List<Claim>> GetClaims();
+        Task<Company> GetCompanyById(int id);
+        Task<List<Claim>> GetClaimsByCompanyId(int companyId);
+        Task<Claim> GetClaimByUCR(string ucr);
+        Task UpdateClaim(Claim claim);
     }
 }
