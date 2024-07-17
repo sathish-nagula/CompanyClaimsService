@@ -38,7 +38,7 @@ namespace Service.Tests
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Id, Is.EqualTo(companyId));
             Assert.That(result.Name, Is.EqualTo("Company1"));
-            Assert.IsTrue(result.HasActivePolicy);
+            Assert.That(result.HasActivePolicy, Is.True);
         }
 
         [Test]
@@ -50,7 +50,7 @@ namespace Service.Tests
 
             var result = await _companyService.IsInsuranceActive(companyId);
 
-            Assert.IsTrue(result);
+            Assert.That(result, Is.True);
         }
 
         [Test]
