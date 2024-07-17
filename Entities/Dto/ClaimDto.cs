@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Entities.Dto;
 
-namespace Entities.Dto
+public class ClaimDto
 {
-    internal class ClaimDto
-    {
-    }
+    public string UCR { get; set; }
+    public int CompanyId { get; set; }
+    public string AssuredName { get; set; }
+    public decimal IncurredLoss { get; set; }
+    public int ClaimAgeInDays { get; set; }
 }
