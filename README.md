@@ -9,7 +9,7 @@ Follow the steps below to get the project up and running:
 2. Build the solution
 3. Run unit tests
 4. Run (F5)
-5. Access the endpoints in tools like Postman
+5. Access the endpoints in tools like Postman ([Postman collection](https://github.com/sathish-nagula/CompanyClaimsService/blob/master/CompanyClaimsApi.postman_collection.json) is available in the solution folder, however, value needs to be updated for a variable called `env`).
      - Get a single company: `/api/Company/{id}`
      - Get claims for a company: `/api/Company/{id}/claims`
      - Get details of a claim: `/api/Claim/{ucr}`
