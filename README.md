@@ -5,8 +5,7 @@ Please make sure you have installed [.NET 6 SDK](https://dotnet.microsoft.com/en
 
 ### Getting Started
 Follow the steps below to get the project up and running:
-1. Clone the repository in IDE like Visual Studio
-   ``` https://github.com/sathish-nagula/CompanyClaimsService ```
+1. Clone [this repository](https://github.com/sathish-nagula/CompanyClaimsService) in IDE like Visual Studio
 2. Build the solution
 3. Run unit tests
 4. Run (F5)
