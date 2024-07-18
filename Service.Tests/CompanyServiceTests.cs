@@ -42,18 +42,6 @@ public class CompanyServiceTests
     }
 
     [Test]
-    public async Task IsInsuranceActive_ShouldReturnTrue_WhenInsuranceIsActive()
-    {
-        var companyId = 1;
-        var company = new Company { Id = companyId, Active = true, InsuranceEndDate = DateTime.Now.AddMonths(1) };
-        _dataLoaderMock.Setup(x => x.GetCompanyById(companyId)).ReturnsAsync(company);
-
-        var result = await _companyService.IsInsuranceActive(companyId);
-
-        Assert.That(result, Is.True);
-    }
-
-    [Test]
     public async Task GetClaimsByCompanyId_ShouldReturn_WhenClaimExists()
     {
         var companyId = 1;

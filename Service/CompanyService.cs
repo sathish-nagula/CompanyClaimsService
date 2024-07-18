@@ -27,12 +27,6 @@ namespace Service
             return companyDto;
         }
 
-        public async Task<bool> IsInsuranceActive(int companyId)
-        {
-            var company = await _dataLoader.GetCompanyById(companyId);
-            return company != null && company.Active && company.InsuranceEndDate > DateTime.Now;
-        }
-
         public async Task<List<ClaimDto>> GetClaimsByCompanyId(int companyId, int pageNumber, int pageSize)
         {
             var claims = await _dataLoader.GetClaimsByCompanyId(companyId);

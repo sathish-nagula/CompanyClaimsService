@@ -29,11 +29,4 @@ public class CompanyController : ControllerBase
         var claims = await _companyService.GetClaimsByCompanyId(id, pageNumber, pageSize);
         return Ok(claims);
     }
-
-    [HttpGet("{id}/insuranceStatus")]
-    public async Task<ActionResult<bool>> IsInsuranceActive(int id)
-    {
-        var isActive = await _companyService.IsInsuranceActive(id);
-        return Ok(isActive);
-    }
 }
