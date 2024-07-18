@@ -50,7 +50,7 @@ public class CompanyServiceTests
             new Claim { UCR = "UCR1", CompanyId = 1, ClaimDate = DateTime.Now.AddDays(-15) },
             new Claim { UCR = "UCR2", CompanyId = 1, ClaimDate = DateTime.Now.AddDays(-20) }
         };
-        _dataLoaderMock.Setup(x => x.GetClaimsByCompanyId(companyId)).ReturnsAsync(claims);
+        _dataLoaderMock.Setup(x => x.GetClaimsByCompanyId(companyId, 1, 10)).ReturnsAsync(claims);
 
         var result = await _companyService.GetClaimsByCompanyId(companyId, 1, 10);
 

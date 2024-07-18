@@ -53,9 +53,13 @@ public class DataLoader : IDataLoader
         return Task.FromResult(_companies.FirstOrDefault(c => c.Id == id));
     }
 
-    public Task<List<Claim>> GetClaimsByCompanyId(int companyId)
+    public async Task<List<Claim>> GetClaimsByCompanyId(int companyId, int pageNumber, int pageSize)
     {
-        return Task.FromResult(_claims.Where(c => c.CompanyId == companyId).ToList());
+        var claims = _claims.Where(c => c.CompanyId == companyId)
+                            .Skip((pageNumber - 1) * pageSize)
+                            .Take(pageSize)
+                            .ToList();
+        return await Task.FromResult(claims);
     }
 
     public Task<Claim> GetClaimByUCR(string ucr)

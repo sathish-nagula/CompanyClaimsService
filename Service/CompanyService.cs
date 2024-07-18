@@ -29,10 +29,9 @@ namespace Service
 
         public async Task<List<ClaimDto>> GetClaimsByCompanyId(int companyId, int pageNumber, int pageSize)
         {
-            var claims = await _dataLoader.GetClaimsByCompanyId(companyId);
-            var pagedClaims = claims.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-            var claimDtos = _mapper.Map<List<ClaimDto>>(pagedClaims);
-            claimDtos.ForEach(c => c.ClaimAgeInDays = (DateTime.Now - pagedClaims.Find(cl => cl.UCR == c.UCR).ClaimDate).Days);
+            var claims = await _dataLoader.GetClaimsByCompanyId(companyId, pageNumber, pageSize);
+            var claimDtos = _mapper.Map<List<ClaimDto>>(claims);
+            claimDtos.ForEach(c => c.ClaimAgeInDays = (DateTime.Now - claims.Find(cl => cl.UCR == c.UCR).ClaimDate).Days);
             return claimDtos;
         }
 

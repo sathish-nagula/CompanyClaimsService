@@ -7,7 +7,7 @@ namespace Data.Contract
         Task<List<Company>> GetCompanies();
         Task<List<Claim>> GetClaims();
         Task<Company> GetCompanyById(int id);
-        Task<List<Claim>> GetClaimsByCompanyId(int companyId);
+        Task<List<Claim>> GetClaimsByCompanyId(int companyId, int pageNumber, int pageSize);
         Task<Claim> GetClaimByUCR(string ucr);
         Task UpdateClaim(Claim claim);
     }
