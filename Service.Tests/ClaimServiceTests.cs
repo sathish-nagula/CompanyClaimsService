@@ -29,7 +29,7 @@ public class ClaimServiceTests
     [Test]
     public async Task GetClaim_ShouldReturnClaim_WhenClaimExists()
     {
-        var ucr = "UCR123";
+        var ucr = "UCR1";
         var claim = new Claim { UCR = ucr, CompanyId = 1, ClaimDate = DateTime.Now.AddDays(-25) };
         _dataLoaderMock.Setup(x => x.GetClaimByUCR(ucr)).ReturnsAsync(claim);
 
@@ -43,7 +43,7 @@ public class ClaimServiceTests
     [Test]
     public async Task UpdateClaim_ShouldUpdateClaimSuccessfully()
     {
-        var claimDto = new ClaimDto { UCR = "UCR123", CompanyId = 1 };
+        var claimDto = new ClaimDto { UCR = "UCR1", CompanyId = 1 };
         _dataLoaderMock.Setup(x => x.UpdateClaim(It.IsAny<Claim>())).Returns(Task.CompletedTask);
 
         await _claimService.UpdateClaim(claimDto);

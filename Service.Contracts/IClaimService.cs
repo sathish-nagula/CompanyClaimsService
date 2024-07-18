@@ -6,5 +6,4 @@ public interface IClaimService
 {
     Task<ClaimDto> GetClaim(string ucr);
     Task UpdateClaim(ClaimDto claim);
-    Task<int> GetClaimAgeInDays(DateTime claimDate);
 }
