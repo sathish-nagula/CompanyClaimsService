@@ -12,32 +12,30 @@ public class DataLoader : IDataLoader
     {
         _companies = new List<Company>();
         _claims = new List<Claim>();
-        for (int i = 1; i <= 100; i++)
-        {
-            _companies.Add(new Company
-            {
-                Id = i,
-                Name = $"Company {i}",
-                Address1 = $"Address1 {i}",
-                Address2 = $"Address2 {i}",
-                Address3 = $"Address3 {i}",
-                Postcode = $"Postcode {i}",
-                Country = $"Country {i}",
-                Active = i % 2 == 0,
-                InsuranceEndDate = DateTime.Now.AddYears(1).AddDays(i)
-            });
 
-            _claims.Add(new Claim
-            {
-                UCR = $"UCR{i}",
-                CompanyId = i,
-                ClaimDate = DateTime.Now.AddDays(-i),
-                LossDate = DateTime.Now.AddDays(-i * 2),
-                AssuredName = $"Assured Name {i}",
-                IncurredLoss = i * 1000,
-                Closed = i % 2 == 0
-            });
-        }
+        _companies = Enumerable.Range(1, 1000).Select(i => new Company
+        {
+            Id = i,
+            Name = $"Company {i}",
+            Address1 = $"Address 1-{i}",
+            Address2 = $"Address 2-{i}",
+            Address3 = $"Address 3-{i}",
+            Postcode = $"PC{i}",
+            Country = $"Country {i}",
+            Active = i % 2 == 0,
+            InsuranceEndDate = i % 2 == 0 ? DateTime.Now.AddYears(1) : DateTime.Now.AddMonths(-1)
+        }).ToList();
+
+        _claims= Enumerable.Range(1, 1000).Select(i => new Claim
+        {
+            UCR = $"UCR{i}",
+            CompanyId = (i % 20) + 1,
+            ClaimDate = DateTime.Now.AddDays(-i),
+            LossDate = DateTime.Now.AddDays(-i - 10),
+            AssuredName = $"Assured {i}",
+            IncurredLoss = 1000 + i * 10,
+            Closed = i % 2 == 0
+        }).ToList();
     }
 
     public Task<List<Company>> GetCompanies()
